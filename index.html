@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+    <header class="welcome">
+        <div class="container">
+            <h1 class="welcome__title">Счётчик талантов</h1>
+            <ul class="welcome__rules">
+                <li class="rule">В таблице значения переведены в бронзовые книги. Серебряные книги переведены в
+                    соотношении 1 к 3, золотые - 1 к 9</li>
+                <li class="rule">Заходы расчитываются из расчета 1 густая смола = 17 книг (4 серебряных и 5 бронзовых
+                    книг), реальной картины не отражает, только приблизительный расчет.</li>
+                <li class="rule">Данные сохраняются в памяти браузера, если есть необходимось в нескольких счётчиках, то
+                    используйте разные браузеры</li>
+                <li class="rule">Для возвышения талантов персонажей требуется: на 1 уровне - бронзовые книги талантов,
+                    до 6 уровня - серебрянные, далее - золотые</li>
+                <li class="rule">Добавление персонажей в список производится по нажатию "+ Персонаж", расположенной над
+                    книгами талантов</li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="content">
+
+        <main class="characters">
+
+            <div class="mon day" id="mon">
+                <h3 class="day__title">Понедельник - Четверг</h3>
+                <p class="day__alert">Пока нет персонажей</p>
+                <div class="day__region day__mondstadt visually-hidden">
+                    <p class="day__subtitle">Мондштадт</p>
+                </div>
+                <div class="day__region day__liyue visually-hidden">
+                    <p class="day__subtitle">Ли Юэ</p>
+                </div>
+                <div class="day__region day__inazuma visually-hidden">
+                    <p class="day__subtitle">Инадзума</p>
+                </div>
+            </div>
+
+            <div class="tue day" id="tue">
+                <h3 class="day__title">Вторник - Пятница</h3>
+                <p class="day__alert">Пока нет персонажей</p>
+                <div class="day__region day__mondstadt visually-hidden">
+                    <p class="day__subtitle">Мондштадт</p>
+                </div>
+                <div class="day__region day__liyue visually-hidden">
+                    <p class="day__subtitle">Ли Юэ</p>
+                </div>
+                <div class="day__region day__inazuma visually-hidden">
+                    <p class="day__subtitle">Инадзума</p>
+                </div>
+
+            </div>
+
+            <div class="wed day" id="wed">
+                <h3 class="day__title">Среда - Суббота</h3>
+                <p class="day__alert">Пока нет персонажей</p>
+                <div class="day__region day__mondstadt visually-hidden">
+                    <p class="day__subtitle">Мондштадт</p>
+                </div>
+                <div class="day__region day__liyue visually-hidden">
+                    <p class="day__subtitle">Ли Юэ</p>
+                </div>
+                <div class="day__region day__inazuma visually-hidden">
+                    <p class="day__subtitle">Инадзума</p>
+                </div>
+
+            </div>
+
+        </main>
+
+        <aside class="others">
+            <nav class="menu">
+                <ul class="menu__items">
+                    <li class="menu__item"><a href="#mon" class="menu__jumper">Пн-Пт</a></li>
+                    <li class="menu__item"><a href="#tue" class="menu__jumper">Вт-Чт</a></li>
+                    <li class="menu__item"><a href="#wed" class="menu__jumper">Ср-Сб</a></li>
+                    <li class="menu__item"><button class="menu__chooser-show">+ Персонаж</button></li>
+                </ul>
+            </nav>
+            <h3 class="others__day">Пн-Чт</h3>
+            <div class="wrapper">
+                <ul class="others__region">
+                    <li class="others__book book">
+                        <img src="img/books/freedom__bronze.png" alt="Свобода бронза" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="freedom_bronze" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book book">
+                        <img src="img/books/freedom__silver.png" alt="Свобода серебро" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="freedom_silver" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book book">
+                        <img src="img/books/freedom__gold.png" alt="Свобода золото" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="freedom_gold" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="others__region">
+                    <li class="others__book">
+                        <img src="img/books/prosperity__bronze.png" alt="Свобода бронза" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="prosperity_bronze" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book">
+                        <img src="img/books/prosperity__silver.png" alt="Свобода серебро" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="prosperity_silver" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book">
+                        <img src="img/books/prosperity__gold.png" alt="Свобода золото" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="prosperity_gold" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="others__region">
+                    <li class="others__book">
+                        <img src="img/books/transience__bronze.png" alt="Свобода бронза" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="transience_bronze" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book">
+                        <img src="img/books/transience__silver.png" alt="Свобода серебро" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="transience_silver" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book">
+                        <img src="img/books/transience__gold.png" alt="Свобода золото" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="transience_gold" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <h3 class="others__day">Вт-Пт</h3>
+            <div class="wrapper">
+                <ul class="others__region">
+                    <li class="others__book book">
+                        <img src="img/books/resistance__bronze.png" alt="Свобода бронза" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="resistance_bronze" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book book">
+                        <img src="img/books/resistance__silver.png" alt="Свобода серебро" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="resistance_silver" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book book">
+                        <img src="img/books/resistance__gold.png" alt="Свобода золото" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="resistance_gold" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="others__region">
+                    <li class="others__book">
+                        <img src="img/books/diligence__bronze.png" alt="Свобода бронза" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="diligence_bronze" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book">
+                        <img src="img/books/diligence__silver.png" alt="Свобода серебро" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="diligence_silver" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book">
+                        <img src="img/books/diligence__gold.png" alt="Свобода золото" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="diligence_gold" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="others__region">
+                    <li class="others__book">
+                        <img src="img/books/elegance__bronze.png" alt="Свобода бронза" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="elegance_bronze" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book">
+                        <img src="img/books/elegance__silver.png" alt="Свобода серебро" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="elegance_silver" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book">
+                        <img src="img/books/elegance__gold.png" alt="Свобода золото" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="elegance_gold" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <h3 class="others__day">Ср-Сб</h3>
+            <div class="wrapper">
+                <ul class="others__region">
+                    <li class="others__book book">
+                        <img src="img/books/ballad__bronze.png" alt="Свобода бронза" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="ballad_bronze" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book book">
+                        <img src="img/books/ballad__silver.png" alt="Свобода серебро" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="ballad_silver" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book book">
+                        <img src="img/books/ballad__gold.png" alt="Свобода золото" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="ballad_gold" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="others__region">
+                    <li class="others__book">
+                        <img src="img/books/gold__bronze.png" alt="Свобода бронза" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="gold_bronze" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book">
+                        <img src="img/books/gold__silver.png" alt="Свобода серебро" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="gold_silver" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book">
+                        <img src="img/books/gold__gold.png" alt="Свобода золото" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="gold_gold" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="others__region">
+                    <li class="others__book">
+                        <img src="img/books/light__bronze.png" alt="Свобода бронза" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="light_bronze" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book">
+                        <img src="img/books/light__silver.png" alt="Свобода серебро" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="light_silver" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                    <li class="others__book">
+                        <img src="img/books/light__gold.png" alt="Свобода золото" class="others__image">
+                        <div class="book__counter">
+                            <button class="book__button book__minus">-</button>
+                            <input type="number" class="book__count" id="light_gold" value="0" min="0">
+                            <button class="book__button book__plus">+</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <p class="footer__author">made by Hait</p>
+    </footer>
+
+    <template class="new__char">
+        <div class="character">
+            <div class="character__info">
+                <img src="img/characters/aloy.png" alt="Элой" class="character__image">
+                <h3 class="character__name">Элой</h3>
+            </div>
+            <div class="skill character__skill">
+                <h4 class="skill__name">Талант 1</h4>
+                <div class="skill__counter">
+                    <button class="skill__button skill__minus">-</button>
+                    <span class="skill__level">1</span>
+                    <button class="skill__button skill__plus">+</button>
+                </div>
+                <table class="skill__math">
+                    <tr>
+                        <td></td>
+                        <td>+1</td>
+                        <td class="skill__head-6">6ур</td>
+                        <td class="skill__head-9">9ур</td>
+                    </tr>
+                    <tr>
+                        <td>Требуется</td>
+                        <td class="skill__need-1"></td>
+                        <td class="skill__need-6"></td>
+                        <td class="skill__need-9"></td>
+                    </tr>
+                    <tr>
+                        <td>Осталось</td>
+                        <td class="skill__left-1"></td>
+                        <td class="skill__left-6"></td>
+                        <td class="skill__left-9"></td>
+                    </tr>
+                    <tr>
+                        <td>Заходы</td>
+                        <td class="skill__attempt-1"></td>
+                        <td class="skill__attempt-6"></td>
+                        <td class="skill__attempt-9"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="skill character__skill">
+                <h4 class="skill__name">Талант 2</h4>
+                <div class="skill__counter">
+                    <button class="skill__button skill__minus">-</button>
+                    <span class="skill__level">1</span>
+                    <button class="skill__button skill__plus">+</button>
+                </div>
+                <table class="skill__math">
+                    <tr>
+                        <td></td>
+                        <td>+1</td>
+                        <td class="skill__head-6">6ур</td>
+                        <td class="skill__head-9">9ур</td>
+                    </tr>
+                    <tr>
+                        <td>Требуется</td>
+                        <td class="skill__need-1"></td>
+                        <td class="skill__need-6"></td>
+                        <td class="skill__need-9"></td>
+                    </tr>
+                    <tr>
+                        <td>Осталось</td>
+                        <td class="skill__left-1"></td>
+                        <td class="skill__left-6"></td>
+                        <td class="skill__left-9"></td>
+                    </tr>
+                    <tr>
+                        <td>Заходы</td>
+                        <td class="skill__attempt-1"></td>
+                        <td class="skill__attempt-6"></td>
+                        <td class="skill__attempt-9"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="skill character__skill">
+                <h4 class="skill__name">Талант 3</h4>
+                <div class="skill__counter">
+                    <button class="skill__button skill__minus">-</button>
+                    <span class="skill__level">1</span>
+                    <button class="skill__button skill__plus">+</button>
+                </div>
+                <table class="skill__math">
+                    <tr>
+                        <td></td>
+                        <td>+1</td>
+                        <td class="skill__head-6">6ур</td>
+                        <td class="skill__head-9">9ур</td>
+                    </tr>
+                    <tr>
+                        <td>Требуется</td>
+                        <td class="skill__need-1"></td>
+                        <td class="skill__need-6"></td>
+                        <td class="skill__need-9"></td>
+                    </tr>
+                    <tr>
+                        <td>Осталось</td>
+                        <td class="skill__left-1"></td>
+                        <td class="skill__left-6"></td>
+                        <td class="skill__left-9"></td>
+                    </tr>
+                    <tr>
+                        <td>Заходы</td>
+                        <td class="skill__attempt-1"></td>
+                        <td class="skill__attempt-6"></td>
+                        <td class="skill__attempt-9"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </template>
+
+    <div class="greyscreen" hidden>
+        <div class="chooser">
+            <div class="chooser__cell"></div>
+            <div class="chooser__cell"><img src="img/weapon/Sword.png" alt="Одноручные мечи"
+                    class="chooser__weapon chooser__sword" width="100"></div>
+            <div class="chooser__cell"><img src="img/weapon/Bow.png" alt="Луки" class="chooser__weapon chooser__bow"
+                    width="100"></div>
+            <div class="chooser__cell"><img src="img/weapon/Polearm.png" alt="Копья"
+                    class="chooser__weapon chooser__polearm" width="100"></div>
+            <div class="chooser__cell"><img src="img/weapon/Claymore.png" alt="Двуручные мечи"
+                    class="chooser__weapon chooser__claymore" width="100"></div>
+            <div class="chooser__cell"><img src="img/weapon/Catalyst.png" alt="Катализаторы"
+                    class="chooser__weapon chooser__catalyst" width="100"></div>
+
+            <div class="chooser__cell"><img src="img/elements/Anemo.png" alt="" class="chooser__element chooser__anemo"
+                    width="100"></div>
+            <div class="chooser__cell chooser__anemo-sword"></div>
+            <div class="chooser__cell chooser__anemo-bow"></div>
+            <div class="chooser__cell chooser__anemo-polearm"></div>
+            <div class="chooser__cell chooser__anemo-claymore"></div>
+            <div class="chooser__cell chooser__anemo-catalyst"></div>
+
+            <div class="chooser__cell"><img src="img/elements/Cryo.png" alt="" class="chooser__element chooser__cryo"
+                    width="100"></div>
+            <div class="chooser__cell chooser__cryo-sword"></div>
+            <div class="chooser__cell chooser__cryo-bow"></div>
+            <div class="chooser__cell chooser__cryo-polearm"></div>
+            <div class="chooser__cell chooser__cryo-claymore"></div>
+            <div class="chooser__cell chooser__cryo-catalyst"></div>
+
+            <div class="chooser__cell"><img src="img/elements/Electro.png" alt=""
+                    class="chooser__element chooser__electro" width="100"></div>
+            <div class="chooser__cell chooser__electro-sword"></div>
+            <div class="chooser__cell chooser__electro-bow"></div>
+            <div class="chooser__cell chooser__electro-polearm"></div>
+            <div class="chooser__cell chooser__electro-claymore"></div>
+            <div class="chooser__cell chooser__electro-catalyst"></div>
+
+            <div class="chooser__cell"><img src="img/elements/Geo.png" alt="" class="chooser__element chooser__geo"
+                    width="100"></div>
+            <div class="chooser__cell chooser__geo-sword"></div>
+            <div class="chooser__cell chooser__geo-bow"></div>
+            <div class="chooser__cell chooser__geo-polearm"></div>
+            <div class="chooser__cell chooser__geo-claymore"></div>
+            <div class="chooser__cell chooser__geo-catalyst"></div>
+
+            <div class="chooser__cell"><img src="img/elements/Hydro.png" alt="" class="chooser__element chooser__hydro"
+                    width="100"></div>
+            <div class="chooser__cell chooser__hydro-sword"></div>
+            <div class="chooser__cell chooser__hydro-bow"></div>
+            <div class="chooser__cell chooser__hydro-polearm"></div>
+            <div class="chooser__cell chooser__hydro-claymore"></div>
+            <div class="chooser__cell chooser__hydro-catalyst"></div>
+
+            <div class="chooser__cell"><img src="img/elements/Pyro.png" alt="" class="chooser__element chooser__pyro"
+                    width="100"></div>
+            <div class="chooser__cell chooser__pyro-sword"></div>
+            <div class="chooser__cell chooser__pyro-bow"></div>
+            <div class="chooser__cell chooser__pyro-polearm"></div>
+            <div class="chooser__cell chooser__pyro-claymore"></div>
+            <div class="chooser__cell chooser__pyro-catalyst"></div>
+
+            <div class="chooser__cell"><img src="img/elements/Dendro.png" alt=""
+                    class="chooser__element chooser__dendro" width="100"></div>
+            <div class="chooser__cell chooser__dendro-sword"></div>
+            <div class="chooser__cell chooser__dendro-bow"></div>
+            <div class="chooser__cell chooser__dendro-polearm"></div>
+            <div class="chooser__cell chooser__dendro-claymore"></div>
+            <div class="chooser__cell chooser__dendro-catalyst"></div>
+        </div>
+    </div>
+</body>
+
+</html>
